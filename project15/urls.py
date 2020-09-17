@@ -22,4 +22,15 @@ urlpatterns = [
     path('webpage/',views.webpage,name='webpage'),
     path('displaytopicform/',views.displaytopicform,name='displaytopicform'),
     path('updateweb/',views.updateweb,name='updateweb'),
+    path('select/',views.select,name='select'),
+    path('delete_topic/',views.delete_topic,name='delete_topic'),
+    path('multi_select/',views.multi_select,name='multi_select'),
+    path('checkbox/',views.checkbox,name='checkbox'),
+
+
+
 ]
+
+admin.site.site_header='My app'
+admin.site.site_title='Dhoni'
+admin.site.index_title='raina'

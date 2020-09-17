@@ -53,5 +53,42 @@ def updateweb(request):
     return render(request,'updateweb.html')
 
 
+def select(request):
+    return render(request,'select.html')
+
+
+def delete_topic(request):
+    if request.method=='POST':
+        topic=request.POST['topic_name']
+        Topic.objects.filter(topic_name=topic).delete()
+        return HttpResponse('one topic has deleted successfully')
+
+def multi_select(request):
+    if request.method=='POST':
+        topics=request.POST.getlist('topic_name')
+        #print(topics)
+        webpages=Webpage.objects.none()
+        for i in topics:
+            webpages=webpages | Webpage.objects.filter(topic_name=i)
+
+        return render(request,'displaywebpage.html',context={'webpages':webpages})
+    return render(request,'multi_select.html',context={'topics':Topic.objects.all()})
+
+
+
+def checkbox(request):
+    return render(request,'checkbox.html',context={'topics':Topic.objects.all()})
+
+
+
+
+
+
+
+
+
+
+
+
 
 

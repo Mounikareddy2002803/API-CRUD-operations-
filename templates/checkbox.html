@@ -7,15 +7,16 @@
 </head>
 <body>
     <center>
-        enter the value to retrive the data
-        <form method="POST">
+
+        <h1>select topics to display</h1>
+        <form action="{% url 'multi_select' %}" method="POST">
             {% csrf_token %}
-            topic_name:
-             <select name="topic_name" id="topic_name" multiple>
-                {% for topic in topics %}
-                    <option value="topic">{{topic.topic_name}}</option>
-                {% endfor %}
-            </select>
+
+            {% for topic in topics %}
+                <label for="topic_name">{{topic.topic_name}}</label>
+                <input type="checkbox" name="topic_name" id="topic_name" value="{{topic}}"><br>
+
+            {% endfor %}
             <br>
             <br>
             <input type="submit" value="Submit">

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+
+        <h1>select topic to delete</h1>
+
+        <form action="{% url 'delete_topic' %}" method="POST">
+            {% csrf_token %}
+            topic_name:
+            <input type="text" name="topic_name" id="topic_name"><br>
+            <input type="submit" value="Delete">
+        </form>
+    </center>
+</body>
+</html>
